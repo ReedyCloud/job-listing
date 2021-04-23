@@ -1,17 +1,15 @@
 <template>
-  <div class="container"></div>
+  <div class="container">{{ foo }}</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 
 export default Vue.extend({
-  data() {
-    return {
-      a: {
-        b: 1
-      }
-    };
+  async asyncData({ $axios }) {
+    const foo = await $axios.$get("jobs?page=1&limit=10");
+    console.log(foo);
+    return { foo };
   }
 });
 </script>

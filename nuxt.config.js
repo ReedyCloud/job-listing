@@ -1,6 +1,5 @@
 export default {
   ssr: true,
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "job-listing",
     htmlAttrs: {
@@ -14,27 +13,18 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    "@nuxt/typescript-build"
-  ],
+  buildModules: ["@nuxt/typescript-build"],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    "bootstrap-vue/nuxt"
-  ],
+  modules: ["bootstrap-vue/nuxt", "@nuxtjs/axios"],
+  axios: {
+    baseURL: "https://6082be765dbd2c001757a628.mockapi.io/api/v1/"
+  },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}
 };

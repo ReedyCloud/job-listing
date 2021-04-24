@@ -30,7 +30,7 @@ export const actions = {
   },
 
   async getJobs(context, page) {
-    const data = await this.$axios.get(`jobs?page=1&limit=10`);
+    const data = await this.$axios.get(`jobs?page=${page}&limit=10`);
     const jobs = data.data.items;
     context.commit("setJobs", jobs);
   }

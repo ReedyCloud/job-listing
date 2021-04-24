@@ -5,10 +5,7 @@
       v-else-if="!isFetchingData && companies.length"
       :companyList="companies"
     />
-    <CPagination
-      path="companies"
-      :is-last-page="companies.length < searchResultsLimit"
-    />
+    <CPagination path="companies" :is-last-page="companies.length < 10" />
   </div>
 </template>
 
@@ -21,16 +18,10 @@ export default Vue.extend({
   methods: {
     ...mapActions(["getCompanies"])
   },
-  data() {
-    return {
-      searchResultsLimit: 10
-    };
-  },
-
   mounted() {
     this.$store.dispatch("getCompanies", {
       page: this.$route.params.id,
-      limit: this.searchResultsLimit
+      limit: 10
     });
   }
 });

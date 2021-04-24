@@ -41,7 +41,7 @@ export default Vue.extend({
           ? this.$router.push({ path: `/${this.path}/${++currPage}` })
           : this.$router.push({ path: `/${this.path}/${--currPage}` });
       } else if (direction) {
-        this.$router.push({ path: `/companies/2` });
+        this.$router.push({ path: `/${this.path}/2` });
       } else {
         this.$router.push({ params: {} });
       }

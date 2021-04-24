@@ -1,6 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container d-flex flex-column align-items-center">
     <CJobList :jobList="jobs" />
+    <CPagination path="jobs" :is-last-page="jobs.length < 10" />
   </div>
 </template>
 

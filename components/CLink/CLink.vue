@@ -21,10 +21,12 @@ export default Vue.extend({
 
 <style lang="scss">
 .c-link {
-  padding: 15px 30px;
+  margin: 10px;
 }
 
 .app-link {
+  padding: 15px 30px;
+
   color: #000;
   position: relative;
   display: flex;
@@ -38,7 +40,7 @@ export default Vue.extend({
     height: 2px;
     left: 50%;
     transform: translate(-50%, -50%);
-    top: calc(100% + 10px);
+    top: 100%;
     transition: width 150ms ease-in-out;
   }
 

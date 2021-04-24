@@ -1,18 +1,13 @@
 <template>
   <div class="container">
-    jestem stroną rozchodową
+    just a mockup homepage
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 
-export default Vue.extend({
-  async asyncData({ $axios }) {
-    // const foo = await $axios.$get("jobs?page=1&limit=10");
-    // return { foo };
-  }
-});
+export default Vue.extend({});
 </script>
 
 <style>

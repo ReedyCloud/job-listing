@@ -1,5 +1,5 @@
 <template>
-  <navigation class="d-flex flex-column flex-md-row">
+  <nav class="d-flex flex-column flex-md-row">
     <CLink link="/">
       Home page
     </CLink>
@@ -9,7 +9,7 @@
     <CLink link="/companies">
       Companies
     </CLink>
-  </navigation>
+  </nav>
 </template>
 
 <script lang="ts">

@@ -7,7 +7,10 @@
     />
     <div v-else>css loader placeholder</div>
     <div>
-      <CCompanyList v-if="companies.length" :company-list="companies" />
+      <CCompanyList
+        v-if="differentCompanies.length"
+        :company-list="differentCompanies"
+      />
     </div>
   </div>
 </template>
@@ -26,12 +29,17 @@ export default Vue.extend({
       );
       return companies && companies[0];
     },
-    mounted() {
-      if (!this.companies.length) {
-        this.$store.dispatch("getCompany", {
-          id: this.$route.params.id
-        });
-      }
+    differentCompanies() {
+      return this.companies.filter(
+        company => company.id !== this.$route.params.id
+      );
+    }
+  },
+  mounted() {
+    if (!this.companies.length) {
+      this.$store.dispatch("getCompany", {
+        id: this.$route.params.id
+      });
     }
   }
 });

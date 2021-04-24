@@ -27,7 +27,6 @@ export default Vue.extend({
     //   this.searchTimer = setTimeout(() => {
     //     this.fetchData();
     //   }, 300);
-    //   console.log(value);
     // },
     // async fetchData() {
     //   const foo = await this.$axios.get(

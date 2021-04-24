@@ -1,13 +1,16 @@
 export const state = () => ({
   companies: [],
-  jobs: []
+  jobs: [],
+  isFetchingData: false
 });
 
 export const getters = {};
 
 export const actions = {
   async getCompanies({ commit }, { page = 1 }) {
+    commit("setIsFetchingData", true);
     const data = await this.$axios.get(`companies?page=${page}&limit=10`);
+    commit("setIsFetchingData", false);
     const companies = data.data.items;
     commit("setCompanies", companies);
   },
@@ -24,20 +27,23 @@ export const actions = {
     }
     companies = data.data.items;
     commit("setCompanies", companies);
-  }
+  },
 
-  // async getJobs(context, page) {
-  //   const data = await this.$axios.get(`jobs?page=${page}?limit=10`);
-  //   const jobs = data.data.items;
-  //   context.commit("getJobs", jobs);
-  // }
+  async getJobs(context, page) {
+    const data = await this.$axios.get(`jobs?page=1&limit=10`);
+    const jobs = data.data.items;
+    context.commit("setJobs", jobs);
+  }
 };
 
 export const mutations = {
   setCompanies(state, companies) {
     state.companies = companies;
   },
-  getJobs(state, jobs) {
+  setIsFetchingData(state, value) {
+    state.isFetchingData = value;
+  },
+  setJobs(state, jobs) {
     state.jobs = jobs;
   }
 };

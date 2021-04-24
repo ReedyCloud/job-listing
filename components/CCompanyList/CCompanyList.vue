@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from "vue";
-import { Company } from "./CCompanyList.types";
+import { Company } from "../CCompanySingle/CCompanySingle.types";
 export default Vue.extend({
   props: {
     companyList: {

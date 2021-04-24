@@ -1,5 +1,7 @@
 <template>
-  <div class="container">{{ foo }}</div>
+  <div class="container">
+    jestem stroną rozchodową
+  </div>
 </template>
 
 <script lang="ts">
@@ -7,9 +9,8 @@ import Vue from "vue";
 
 export default Vue.extend({
   async asyncData({ $axios }) {
-    const foo = await $axios.$get("jobs?page=1&limit=10");
-    console.log(foo);
-    return { foo };
+    // const foo = await $axios.$get("jobs?page=1&limit=10");
+    // return { foo };
   }
 });
 </script>

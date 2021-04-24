@@ -12,6 +12,12 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  rules: [
+    {
+      test: /\.scss$/,
+      use: ["vue-style-loader", "css-loader", "sass-loader"]
+    }
+  ],
 
   css: [],
 
@@ -25,6 +31,9 @@ export default {
   axios: {
     baseURL: "https://6082be765dbd2c001757a628.mockapi.io/api/v1/"
   },
-
+  router: {
+    linkActiveClass: "app-link--active",
+    linkExactActiveClass: "app-link--exact"
+  },
   build: {}
 };

@@ -1,24 +1,34 @@
 <template>
-  <div class="container">
-    im detailed company site
-
-    <div>
-      <div>more companies in $state:</div>
-      <CCompanyList :companyList="companyList" />
-    </div>
+  <div class="container d-flex flex-column">
+    <CCompanyList :companyList="companies" />
+    <CPagination
+      path="companies"
+      :is-last-page="companies.length < searchResultsLimit"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import { mapState, mapActions } from "vuex";
 
 export default Vue.extend({
-  async asyncData({ $axios }) {
-    const data = await $axios.get(
-      "companies?limit=10&location_state=Washington"
-    );
-    const companyList = data.data;
-    return { companyList };
+  layout: "listing",
+  computed: mapState(["companies"]),
+  methods: {
+    ...mapActions(["getCompanies"])
+  },
+  data() {
+    return {
+      searchResultsLimit: 10
+    };
+  },
+
+  mounted() {
+    this.$store.dispatch("getCompanies", {
+      page: this.$route.params.id,
+      limit: this.searchResultsLimit
+    });
   }
 });
 </script>

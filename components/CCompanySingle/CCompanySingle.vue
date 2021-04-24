@@ -1,6 +1,6 @@
 <template>
-  <NuxtLink :to="`companies/${data.id}`" class="company">
-    <span v-if="data.name">Company name: {{ data.name }}</span>
+  <NuxtLink :to="`/company/${data.id}`" class="company">
+    <span v-if="data.name">Name: {{ data.name }}</span>
   </NuxtLink>
 </template>
 

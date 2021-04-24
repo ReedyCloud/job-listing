@@ -1,9 +1,9 @@
 <template>
   <nav class="d-flex flex-column flex-md-row">
-    <CLink link="/">
+    <CLink exact link="/">
       Home page
     </CLink>
-    <CLink link="/job-offers">
+    <CLink link="/jobs">
       Job Offers
     </CLink>
     <CLink link="/companies">

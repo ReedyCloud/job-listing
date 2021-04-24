@@ -1,6 +1,12 @@
 <template>
   <div>
-    wyszukiwara
+    Search foo
+    <input
+      type="text"
+      name=""
+      id=""
+      @input="$emit('input', $event.target.value)"
+    />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div v-if="companyList">
     <CCompanySingle
-      v-for="company in companyList.items"
+      v-for="company in companyList"
       :key="company.id"
       :data="company"
     />
@@ -10,11 +10,11 @@
 
 <script lang="ts">
 import Vue, { PropType } from "vue";
-import { CompanyList } from "./CCompanyList.types";
+import { Company } from "./CCompanyList.types";
 export default Vue.extend({
   props: {
     companyList: {
-      type: Object as PropType<CompanyList>,
+      type: Array as PropType<Company[]>,
       required: true
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="c-link">
-    <NuxtLink class="app-link" :to="link">
+    <NuxtLink v-if="link" class="app-link" :to="link">
       <slot />
     </NuxtLink>
   </div>

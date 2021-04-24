@@ -5,6 +5,6 @@ type Company = {
   location_state: string;
 };
 
-export type CompanyList = {
-  items: Company[];
-};
+// export type CompanyList = {
+//   [key: number]: Company[];
+// };

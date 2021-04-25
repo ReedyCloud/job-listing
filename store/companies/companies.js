@@ -1,7 +1,7 @@
-const state = {
+const state = () => ({
   companies: [],
   isFetchingData: false
-};
+});
 
 const actions = {
   async getCompanies({ commit }, { page = 1 }) {

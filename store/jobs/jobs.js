@@ -1,7 +1,7 @@
-const state = {
+const state = () => ({
   jobs: [],
   isFetchingData: false
-};
+});
 
 const actions = {
   async getJobs({ commit }, page = 1) {

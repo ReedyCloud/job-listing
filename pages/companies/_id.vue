@@ -12,12 +12,13 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapState, mapActions } from "vuex";
+import { Company } from "@/types/company.types";
 
 export default Vue.extend({
   computed: {
     ...mapState({
-      companies: state => state.companies.companies,
-      isFetchingData: state => state.companies.isFetchingData
+      companies: (state: any): Company[] => state.companies.companies,
+      isFetchingData: (state: any): boolean => state.companies.isFetchingData
     })
   },
   methods: {

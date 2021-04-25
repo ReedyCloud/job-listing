@@ -7,13 +7,14 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { Job } from "@/types/job.types";
 import { mapState } from "vuex";
 export default Vue.extend({
   layout: "listing",
   middleware: "loadJobs",
   computed: {
     ...mapState({
-      jobs: state => state.jobs.jobs
+      jobs: (state: any): Job[] => state.jobs.jobs
     })
   }
 });

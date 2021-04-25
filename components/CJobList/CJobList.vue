@@ -1,6 +1,6 @@
 <template>
   <div v-if="jobList">
-    <CJobSingle v-for="job in jobList" :id="job.id" :data="job" />
+    <CJobSingle v-for="job in jobList" :id="job.id" :data="job" :key="job.id" />
   </div>
 </template>
 

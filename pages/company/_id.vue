@@ -1,15 +1,15 @@
 <template>
   <div class="container d-flex flex-column">
     <CCompanyDetailed
-      v-if="companyDetails"
-      :name="companyDetails.name"
-      :location="companyDetails.location_state"
+      v-if="selectedCompanyDetails"
+      :name="selectedCompanyDetails.name"
+      :location="selectedCompanyDetails.location_state"
     />
     <div v-else>css loader placeholder</div>
     <div>
       <CCompanyList
-        v-if="differentCompanies.length"
-        :company-list="differentCompanies"
+        v-if="filteredCompanies.length"
+        :company-list="filteredCompanies"
       />
     </div>
   </div>
@@ -17,32 +17,31 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { Company } from "@/types/company.types";
 import { mapState, mapActions } from "vuex";
 
 export default Vue.extend({
   computed: {
     ...mapState({
-      companies: state => state.companies.companies
+      companies: (state: any): Company[] => state.companies.companies
     }),
-    companyDetails() {
+    selectedCompanyDetails(): Company {
       let companies = [...this.companies];
       companies = companies.filter(
         company => company.id === this.$route.params.id
       );
-      return companies && companies[0];
+      return companies?.[0];
     },
-    differentCompanies() {
+    filteredCompanies(): Company[] | boolean {
       return this.companies.filter(
-        company => company.id !== this.$route.params.id
+        (company: any): Company[] | boolean =>
+          company.id !== this.$route.params.id
       );
     }
   },
   mounted() {
     if (!this.companies.length) {
       this.getCompany({ id: this.$route.params.id });
-      // this.$store.dispatch("getCompany", {
-      //   id: this.$route.params.id
-      // });
     }
   },
   methods: {

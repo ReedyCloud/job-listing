@@ -13,16 +13,16 @@ const actions = {
   },
 
   async getCompany({ commit }, { id }) {
-    let data = await this.$axios.get(`companies?id=${id}`);
-    let companies = data.data.items;
-    const company = companies.filter(company => company.id === id);
+    let data = await this.$axios.get(`companies/${id}`);
+    let companies = [];
+    const company = data.data;
 
-    if (company.length) {
+    if (company) {
       data = await this.$axios.get(
-        `companies?&location_state=${company[0].location_state}`
+        `companies?location_state=${company.location_state}`
       );
+      companies = data.data.items;
     }
-    companies = data.data.items;
     commit("setCompanies", companies);
   }
 };

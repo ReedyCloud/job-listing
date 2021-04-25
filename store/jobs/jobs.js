@@ -2,6 +2,7 @@ const state = {
   jobs: [],
   isFetchingData: false
 };
+
 const actions = {
   async getJobs({ commit }, page = 1) {
     const data = await this.$axios.get(`jobs?page=${page}&limit=10`);

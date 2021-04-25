@@ -11,7 +11,6 @@ const actions = {
     const companies = data.data.items;
     commit("setCompanies", companies);
   },
-
   async getCompany({ commit }, { id }) {
     commit("setIsFetchingData", true);
     let data = await this.$axios.get(`companies/${id}`);

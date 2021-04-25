@@ -1,36 +1,41 @@
 <template>
   <div>
-    <div>
+    <div class="mb-5">
       <h1>
-        Details of our job offer
+        Details of job offer
       </h1>
       <div>
         <div>
-          Company name: <b> {{ selectedJobDetails.company }}</b>
+          Company name: <b> {{ selectedJobDetails.company }}</b
+          >.
         </div>
         <div>
-          Your job will as <b>{{ selectedJobDetails.title }}</b> consist of
-          <b>{{ selectedJobDetails.description }}</b>
+          Your job as <b>{{ selectedJobDetails.title }}</b> will consist of
+          <b>{{ selectedJobDetails.description }}</b
+          >.
         </div>
         <div>
           Our department is placed in <b> {{ selectedJobDetails.department }}</b
           >,
           <br />
           <b> {{ selectedJobDetails.location }}</b
-          >,
-          <b> {{ selectedJobDetails.location_state }}</b>
+          >, <b> {{ selectedJobDetails.location_state }}</b
+          >.
         </div>
         <div>
           Salary:
           <b>
             {{ selectedJobDetails.salary }}
-            {{ selectedJobDetails.salary_currency }}
-          </b>
+            {{ selectedJobDetails.salary_currency }} </b
+          >.
         </div>
-        <div></div>
       </div>
     </div>
-    <form @submit.prevent="submitForm">
+    <h2>Apply for our offer</h2>
+    <form
+      @submit.prevent="submitForm"
+      class="d-flex flex-column align-items-center mb-5"
+    >
       <CFieldInput
         id="first_name"
         placeholder="name..."
@@ -68,7 +73,13 @@
 
       <button type="submit">submit my application</button>
     </form>
+    <h3 class="mb-3">
+      Other job offers in <b>{{ selectedJobDetails.location_state }}</b>
+    </h3>
     <CJobList v-if="filteredJobs.length" :jobList="filteredJobs" />
+    <h4 v-else>
+      looks like its only job in {{ selectedJobDetails.location_state }} :(
+    </h4>
   </div>
 </template>
 

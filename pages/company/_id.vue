@@ -5,7 +5,7 @@
       :name="selectedCompanyDetails.name"
       :location="selectedCompanyDetails.location_state"
     />
-    <div v-else>css loader placeholder</div>
+    <CLoader v-else />
     <div>
       <CCompanyList
         v-if="filteredCompanies.length"

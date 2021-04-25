@@ -1,6 +1,6 @@
 <template>
   <div class="container d-flex flex-column">
-    <div v-if="isFetchingData" style="height: 810px;">fetching data</div>
+    <CLoader v-if="isFetchingData" />
     <CCompanyList
       v-else-if="!isFetchingData && companies.length"
       :companyList="companies"

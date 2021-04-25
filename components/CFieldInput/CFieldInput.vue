@@ -1,5 +1,5 @@
 <template>
-  <div class="field-input">
+  <div class="field-input d-flex justify-content-between w-100 mb-3">
     <label class="field-input__label" v-if="label" :for="id">{{ label }}</label>
     <input
       class="field-input__input"

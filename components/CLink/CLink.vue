@@ -25,12 +25,15 @@ export default Vue.extend({
 }
 
 .app-link {
-  padding: 15px 30px;
-
+  padding: 5px 10px;
   color: #000;
   position: relative;
   display: flex;
   justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    padding: 15px 30px;
+  }
 
   &::before {
     position: absolute;

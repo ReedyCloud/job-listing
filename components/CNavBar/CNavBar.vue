@@ -1,5 +1,5 @@
 <template>
-  <nav class="d-flex flex-column flex-md-row">
+  <nav class="d-flex flex-column flex-md-row navbar mb-5">
     <CLink exact link="/">
       Home page
     </CLink>

@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from "vue";
-import { Job } from "../CJobSingle/CJobsSingle.types";
+import { Job } from "@/types/job.types";
 
 export default Vue.extend({
   props: {

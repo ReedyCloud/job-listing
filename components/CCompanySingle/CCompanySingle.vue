@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from "vue";
-import { Company } from "./CCompanySingle.types";
+import { Company } from "@/types/company.types";
 export default Vue.extend({
   props: {
     data: {

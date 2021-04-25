@@ -1,6 +1,6 @@
 <template>
   <div>
-    Search foo
+    Search offers
     <input
       type="text"
       name=""

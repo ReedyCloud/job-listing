@@ -13,6 +13,7 @@ const actions = {
   },
 
   async getCompany({ commit }, { id }) {
+    commit("setIsFetchingData", true);
     let data = await this.$axios.get(`companies/${id}`);
     let companies = [];
     const company = data.data;
@@ -23,6 +24,7 @@ const actions = {
       );
       companies = data.data.items;
     }
+    commit("setIsFetchingData", false);
     commit("setCompanies", companies);
   }
 };

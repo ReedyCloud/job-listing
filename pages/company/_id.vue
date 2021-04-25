@@ -1,11 +1,11 @@
 <template>
   <div class="container d-flex flex-column">
+    <CLoader v-if="isFetchingData" />
     <CCompanyDetailed
-      v-if="selectedCompanyDetails"
+      v-else-if="!isFetchingData && selectedCompanyDetails"
       :name="selectedCompanyDetails.name"
       :location="selectedCompanyDetails.location_state"
     />
-    <CLoader v-else />
     <div>
       <CCompanyList
         v-if="filteredCompanies.length"
@@ -23,7 +23,8 @@ import { mapState, mapActions } from "vuex";
 export default Vue.extend({
   computed: {
     ...mapState({
-      companies: (state: any): Company[] => state.companies.companies
+      companies: (state: any): Company[] => state.companies.companies,
+      isFetchingData: (state: any): boolean => state.companies.isFetchingData
     }),
     selectedCompanyDetails(): Company {
       let companies = [...this.companies];
@@ -32,7 +33,7 @@ export default Vue.extend({
       );
       return companies?.[0];
     },
-    filteredCompanies(): Company[] | boolean {
+    filteredCompanies(): Company[] {
       return this.companies.filter(
         (company: any): Company[] | boolean =>
           company.id !== this.$route.params.id

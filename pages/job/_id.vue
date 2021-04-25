@@ -86,12 +86,15 @@
       looks like its only job in {{ selectedJobDetails.location_state }} :(
     </h4>
     <div
-      v-if="error || success"
+      v-if="error || success || isSubmitting"
       class="form-modal d-flex flex-column  align-items-center justify-content-center"
     >
-      <h3 v-if="success">form sent succesfully</h3>
-      <h3 v-else>there was an error</h3>
-      <button class="mt-5" @click="clearStatus">close modal</button>
+      <CLoader v-if="isSubmitting" />
+      <div v-else>
+        <h3 v-if="success">form sent succesfully</h3>
+        <h3 v-else>there was an error</h3>
+        <button class="mt-5" @click="clearStatus">close modal</button>
+      </div>
     </div>
   </div>
 </template>
@@ -185,6 +188,7 @@ export default Vue.extend({
         this.isSubmitting = false;
       } catch (error) {
         this.error = true;
+        this.isSubmitting = false;
       }
     }
   }

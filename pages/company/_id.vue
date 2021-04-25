@@ -17,11 +17,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default Vue.extend({
   computed: {
-    ...mapState(["companies"]),
+    ...mapState({
+      companies: state => state.companies.companies
+    }),
     companyDetails() {
       let companies = [...this.companies];
       companies = companies.filter(
@@ -37,10 +39,14 @@ export default Vue.extend({
   },
   mounted() {
     if (!this.companies.length) {
-      this.$store.dispatch("getCompany", {
-        id: this.$route.params.id
-      });
+      this.getCompany({ id: this.$route.params.id });
+      // this.$store.dispatch("getCompany", {
+      //   id: this.$route.params.id
+      // });
     }
+  },
+  methods: {
+    ...mapActions("companies", ["getCompany"])
   }
 });
 </script>

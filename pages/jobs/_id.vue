@@ -12,7 +12,9 @@ export default Vue.extend({
   layout: "listing",
   middleware: "loadJobs",
   computed: {
-    ...mapState(["jobs"])
+    ...mapState({
+      jobs: state => state.jobs.jobs
+    })
   }
 });
 </script>

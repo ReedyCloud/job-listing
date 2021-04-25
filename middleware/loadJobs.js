@@ -1,7 +1,7 @@
 export default async function({ store, route }) {
   if (typeof route.params.id !== "undefined") {
-    await store.dispatch("getJobs", route.params.id);
+    await store.dispatch("jobs/getJobs", route.params.id);
   } else {
-    await store.dispatch("getJobs", 1);
+    await store.dispatch("jobs/getJobs", 1);
   }
 }

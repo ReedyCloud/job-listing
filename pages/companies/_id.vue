@@ -14,15 +14,17 @@ import Vue from "vue";
 import { mapState, mapActions } from "vuex";
 
 export default Vue.extend({
-  computed: mapState(["companies", "isFetchingData"]),
+  computed: {
+    ...mapState({
+      companies: state => state.companies.companies,
+      isFetchingData: state => state.companies.isFetchingData
+    })
+  },
   methods: {
-    ...mapActions(["getCompanies"])
+    ...mapActions("companies", ["getCompanies"])
   },
   mounted() {
-    this.$store.dispatch("getCompanies", {
-      page: this.$route.params.id,
-      limit: 10
-    });
+    this.getCompanies({ page: this.$route.params.id, limit: 10 });
   }
 });
 </script>
